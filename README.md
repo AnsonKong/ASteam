@@ -1,2 +1,2 @@
 # ASteam
-A Website simulating Steam, just for practice
+A Website simulating Steam, just for practicing
