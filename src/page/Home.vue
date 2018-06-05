@@ -23,9 +23,6 @@
   background-position: center 0;
   background-repeat: no-repeat;
 }
-.top-wrapper {
-  text-align: center;
-}
 </style>
 
 
