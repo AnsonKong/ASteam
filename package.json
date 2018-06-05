@@ -1,11 +1,14 @@
 {
-  "name": "my-steam",
+  "name": "asteam",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=production node index.js",
+    "pm2start": "cross-env NODE_EVN=production pm2 start index.js --name=asteam",
+    "pm2stop": "pm2 stop asteam",
+    "pm2delete": "pm2 delete asteam",
     "dev": "cross-env NODE_ENV=development node index.js",
     "build": "npm run build:server && npm run build:client",
     "build:server": "cross-env NODE_ENV=production webpack --config build/webpack.server.config.js",
