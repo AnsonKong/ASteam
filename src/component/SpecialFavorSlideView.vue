@@ -11,7 +11,8 @@
           <div v-for="(col, colI) in slotProps.item" :key="colI" class="slide-margin-right">
             <!-- spotlight -->
             <div v-if="col.type === 'spotlight'" class="slide-spotlight-wrapper">
-              <div class="spotlight-wrapper default-slide-bg btn" :data-slide="col.data">
+              <div class="spotlight-wrapper default-slide-bg btn">
+                <div class="spotlight-wrapper" :data-slide="col.data"></div>
               </div>
               <div class="common-content spotlight-content">
                 <h2>{{col.title}}</h2>
@@ -33,7 +34,8 @@
             <!-- headers -->
             <div v-else>
               <div v-for="(header, headerI) in col.data" :key="headerI" :class="['slide-header-wrapper', headerI === 0 ? 'slide-header-wrapper-up' : '']">
-                <div class="header-wrapper default-slide-bg btn" :data-slide="header.data">
+                <div class="header-wrapper default-slide-bg btn">
+                  <div class="header-wrapper" :data-slide="header.data"></div>
                 </div>
                 <div class="common-content header-content">
                   <div class="price-wrapper">

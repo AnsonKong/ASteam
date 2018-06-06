@@ -4,11 +4,13 @@
       <slide-view ref="slideView" @selectedIndexChanged="onIndexChanged" title="精选和推荐" :items="items" :auto-play="true" :slide-wrapper-height="353">
         <template slot-scope="slotProps">
           <div class="total-wrapper btn" :ref="`slides${slotProps.index}`">
-            <div class="main-screen-wrapper default-slide-bg" :data-slide="slotProps.item.main" :style="{'background-image': slotProps.item.loaded ? `url(${(slotProps.item.screenIndex === -1 ? slotProps.item.main : slotProps.item.screenshots[slotProps.item.screenIndex])})` : null}">
+            <div class="main-screen-wrapper default-slide-bg">
+              <div class="main-img" :data-slide="slotProps.item.main" :style="{'background-image': slotProps.item.loaded ? `url(${(slotProps.item.screenIndex === -1 ? slotProps.item.main : slotProps.item.screenshots[slotProps.item.screenIndex])})` : null}"></div>
             </div>
             <div class="info-wrapper">
               <div class="info-title">{{slotProps.item.title}}</div>
-              <div v-for="(s, i) in slotProps.item.screenshots" :key="i" :data-slide="s"  class="screenshot default-slide-bg" @mouseover="onScreenShotOver(slotProps.index, i)" @mouseout="onScreenShotOut(slotProps.index)">
+              <div v-for="(s, i) in slotProps.item.screenshots" :key="i"  class="screenshot default-slide-bg" @mouseover="onScreenShotOver(slotProps.index, i)" @mouseout="onScreenShotOut(slotProps.index)">
+                <div class="screenshot-img" :data-slide="s"></div>
               </div>
               <div class="info-price">
                 {{slotProps.item.price !== -1 ? `¥ ${slotProps.item.price}` : '免费游玩'}}
@@ -48,13 +50,22 @@
   .screenshot:hover {
     opacity: 1;
   }
+  .screenshot-img {
+    width: 162px;
+    height: 90.98px;
+    background-size: 162px 90.98px;
+  }
   .main-screen-wrapper {
     flex-basis: 616px;
     z-index: 2;
     box-shadow: 0 0 10px 1px #000;
     width: 616px;
     height: 353px;
-    background-size: cover;
+    background-size: 616px 353px;
+  }
+  .main-img {
+    width: 616px;
+    height: 353px;
     background-size: 616px 353px;
   }
   .total-wrapper {
