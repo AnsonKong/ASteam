@@ -4,12 +4,15 @@ import { createRouter } from './router'
 import { createStore } from './store'
 import mixinObj from './mixin'
 import { sync } from 'vuex-router-sync'
+import createDirectives from './directive'
 
 export function createApp () {
   const router = createRouter()
   const store = createStore()
 
   Vue.mixin(mixinObj)
+
+  createDirectives()
 
   sync(store, router)
 

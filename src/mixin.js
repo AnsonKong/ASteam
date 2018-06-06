@@ -9,5 +9,13 @@ export default {
     } else {
       next()
     }
+  },
+  methods: {
+    loadSlide (dom) {
+      const r = dom.querySelectorAll('div[data-slide]')
+      r.forEach(element => {
+        element.style['background-image'] = `url(${element.dataset['slide']})`
+      });
+    }
   }
 }

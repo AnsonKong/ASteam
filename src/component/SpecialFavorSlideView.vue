@@ -1,60 +1,74 @@
 <template>
-  <div class="main-wrapper">
-    <slide-view title="特别优惠" :items="items" :slide-wrapper-height="390">
-      <template slot="right-content">
-        <div>
-          <outline-btn label="浏览所有" />
-        </div>
-      </template>
-      <template slot-scope="slotProps">
-        <div v-for="(col, colI) in slotProps.item" :key="colI" class="slide-margin-right">
-          <!-- spotlight -->
-          <div v-if="col.type === 'spotlight'" class="slide-spotlight-wrapper">
-            <img :src="col.data" width="306" height="350" class="btn" />
-            <div class="common-content spotlight-content">
-              <h2>{{col.title}}</h2>
-              <div class="spotlight-sub-title">{{col.subTitle}}</div>
-              <div v-if="col.oPrice" class="price-wrapper">
-                <div class="discount-pct">
-                  {{col.discount}}
-                </div><div class="discount-prices">
-                  <div class="discount-original-price">
-                    {{'¥ ' + col.oPrice}}
-                  </div>
-                  <div class="discount-new-price">
-                    {{'¥ ' + col.nPrice}}
-                  </div>
-                </div>
-              </div>
-            </div>
+  <delay-load-view :trigger-callback="triggerLoad">
+    <div class="main-wrapper">
+      <slide-view title="特别优惠" :items="items" :slide-wrapper-height="390">
+        <template slot="right-content">
+          <div>
+            <outline-btn label="浏览所有" />
           </div>
-          <!-- headers -->
-          <div v-else>
-            <div v-for="(header, headerI) in col.data" :key="headerI" :class="['slide-header-wrapper', headerI === 0 ? 'slide-header-wrapper-up' : '']">
-              <img :src="header.data" width="306" height="143" class="btn" />
-              <div class="common-content header-content">
-                <div class="price-wrapper">
+        </template>
+        <template slot-scope="slotProps">
+          <div v-for="(col, colI) in slotProps.item" :key="colI" class="slide-margin-right">
+            <!-- spotlight -->
+            <div v-if="col.type === 'spotlight'" class="slide-spotlight-wrapper">
+              <div class="spotlight-wrapper default-slide-bg btn" :data-slide="col.data">
+              </div>
+              <div class="common-content spotlight-content">
+                <h2>{{col.title}}</h2>
+                <div class="spotlight-sub-title">{{col.subTitle}}</div>
+                <div v-if="col.oPrice" class="price-wrapper">
                   <div class="discount-pct">
-                    {{header.discount}}
+                    {{col.discount}}
                   </div><div class="discount-prices">
                     <div class="discount-original-price">
-                      {{'¥ ' + header.oPrice}}
+                      {{'¥ ' + col.oPrice}}
                     </div>
                     <div class="discount-new-price">
-                      {{'¥ ' + header.nPrice}}
+                      {{'¥ ' + col.nPrice}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- headers -->
+            <div v-else>
+              <div v-for="(header, headerI) in col.data" :key="headerI" :class="['slide-header-wrapper', headerI === 0 ? 'slide-header-wrapper-up' : '']">
+                <div class="header-wrapper default-slide-bg btn" :data-slide="header.data">
+                </div>
+                <div class="common-content header-content">
+                  <div class="price-wrapper">
+                    <div class="discount-pct">
+                      {{header.discount}}
+                    </div><div class="discount-prices">
+                      <div class="discount-original-price">
+                        {{'¥ ' + header.oPrice}}
+                      </div>
+                      <div class="discount-new-price">
+                        {{'¥ ' + header.nPrice}}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </template>
-    </slide-view>
-  </div>
+        </template>
+      </slide-view>
+    </div>
+  </delay-load-view>
 </template>
 
 <style scoped>
+  .header-wrapper {
+    width: 306px;
+    height: 143px;
+    background-size: 306px 143px;
+  }
+  .spotlight-wrapper {
+    width: 306px;
+    height: 350px;
+    background-size: 306px 350px;
+  }
   .discount-original-price {
     color: #7193a6;
     text-decoration: line-through;
@@ -130,10 +144,18 @@
 <script>
 import SlideView from './SlideView.vue'
 import OutlineBtn from './OutlineBtn.vue'
+import DelayLoadView from './DelayLoadView.vue'
+
 export default {
   components: {
     'slide-view': SlideView,
-    'outline-btn': OutlineBtn
+    'outline-btn': OutlineBtn,
+    'delay-load-view': DelayLoadView
+  },
+  methods: {
+    triggerLoad () {
+      this.loadSlide(this.$el)
+    }
   },
   data () {
     return {

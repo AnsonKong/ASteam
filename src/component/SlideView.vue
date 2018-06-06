@@ -147,6 +147,7 @@ export default {
     },
     manualSetIndex (index) {
       this.selectedIndex = index
+      this.$emit('selectedIndexChanged', this.selectedIndex)
       this.startTimer()
     },
     startTimer () {
@@ -161,9 +162,11 @@ export default {
     },
     prevSlide () {
       this.selectedIndex = (this.selectedIndex - 1 < 0) ? this.items.length - 1 : this.selectedIndex - 1 
+      this.$emit('selectedIndexChanged', this.selectedIndex)
     },
     nextSlide () {
       this.selectedIndex = (this.selectedIndex + 1 === this.items.length) ? 0 : this.selectedIndex + 1 
+      this.$emit('selectedIndexChanged', this.selectedIndex)
     }
   },
   mounted () {
