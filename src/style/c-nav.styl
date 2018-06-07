@@ -1,0 +1,40 @@
+/*
+ * Components
+ * c-nav
+ */
+.c-nav
+  display flex
+  flex-direction row
+  align-items center
+
+.c-nav--dark
+  box-shadow 0 0 3px rgba( 0, 0, 0, 0.4)
+  background rgba( 48, 95, 128, 0.9 )
+
+.c-nav__item
+  position relative
+
+.c-nav__item__btn
+  display inline-block
+  cursor pointer
+  vertical-align middle
+
+.c-nav__item__btn--grey
+  color #b8b6b4
+  padding 10px
+  &:hover
+    color white
+
+.c-nav__item__btn--dark
+  padding 0 10px
+  color #d9dadd
+  border-right 1px solid rgba( 16, 21, 25, 0.3)
+  background rgba(255, 255, 255, 0)
+  font-size 13px
+  line-height 35px
+  &:hover
+    color black
+    background rgba(255, 255, 255, 0.8)
+
+.c-nav__item__btn--big
+  font-size 14px

@@ -4,10 +4,5 @@
   </div>
 </template>
 
-<script>
-import 'normalize.css'
-import './style/default.css'
-export default {
-  
-}
-</script>
+<style lang="stylus" src="./style/index.styl">
+</style>

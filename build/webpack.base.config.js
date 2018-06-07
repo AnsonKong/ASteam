@@ -10,6 +10,14 @@ module.exports = {
         use: [ 'vue-style-loader', 'css-loader' ]
       },
       {
+        test: /\.stylus$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'stylus-loader'
+        ]
+      },
+      {
         test: /\.vue$/,
         use: [ 'vue-loader' ]
       }

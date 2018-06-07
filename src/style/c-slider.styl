@@ -1,0 +1,80 @@
+/*
+ * Components
+ * c-slider
+ */
+
+.c-slider__container
+  position relative
+  cursor pointer
+
+.c-slider__main
+  display flex
+  transition all 0.5s
+  position absolute
+  left 0
+  top 0
+
+.c-slider__main-active
+  opacity 1
+  visibility visible
+
+.c-slider__main-deactive
+  opacity 0
+  visibility hidden
+
+.c-slider__item
+  background linear-gradient(135deg, rgba(37,49,63,1) 5%, rgba(54,97,125,1) 95%)
+
+.c-slider__arrow-container
+  position absolute
+  top calc(50% - 54px)
+  width 45px
+  height 108px
+  display flex
+  justify-content center
+  align-items center
+  cursor pointer
+
+.c-slider__arrow-container--left
+  left -45px
+  background linear-gradient( to right, rgba( 0, 0, 0, 0.3) 5%,rgba( 0, 0, 0, 0) 95%)
+  &:hover
+    background linear-gradient( to right, rgba( 171, 218, 244, 0.3) 5%,rgba( 171, 218, 244, 0) 95%)
+
+.c-slider__arrow-container--right
+  right -45px
+  background linear-gradient( to right, rgba( 0, 0, 0, 0) 5%,rgba( 0, 0, 0, 0.3) 95%)
+  &:hover
+    background linear-gradient( to right, rgba( 171, 218, 244, 0) 5%,rgba( 171, 218, 244, 0.3) 95%)
+
+.c-slider__arrow
+  width 23px
+  height 36px
+  background-image url('/public/arrows.png')
+
+.c-slider__arrow--left
+  left 0
+  background-position-x 23px
+
+.c-slider__arrow--right
+  right 0
+
+.c-slider__thumbs-container
+  display flex
+  justify-content center
+  align-items center
+  height 40px
+
+.c-slider__thumb
+  cursor pointer
+  width 15px
+  height 9px
+  background-color hsla(202, 60%, 100%, 0.2)
+  border-radius 2px
+  transition all 0.5s
+  margin 0 2px
+  &:hover
+    background-color hsla(202, 60%, 100%, 0.4)
+
+.c-slider__thumb--active
+  background-color hsla(202, 60%, 100%, 0.4)

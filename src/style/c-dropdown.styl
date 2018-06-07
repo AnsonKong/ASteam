@@ -1,0 +1,53 @@
+/*
+ * Components
+ * c-dropdown
+ */
+.c-dropdown
+  position absolute
+  display flex
+  flex-direction column
+  z-index 1500
+  transition all 0.5s
+
+.c-dropdown--active
+  opacity 1
+  visibility visible
+
+.c-dropdown--deactive
+  opacity 0
+  visibility hidden
+
+.c-dropdown--dark
+  background #171a21
+  padding 5px 15px 10px 15px
+  box-shadow 3px 3px 5px -3px #000
+
+.c-dropdown--light
+  background linear-gradient(to bottom, #e3eaef 5%, #c7d5e0 95%)
+  padding 8px 5px
+  box-shadow 0 0 12px #000000
+  
+.c-dropdown__item
+  cursor pointer
+  white-space nowrap
+
+.c-dropdown__item--small
+  font-size 11px
+
+.c-dropdown__item--big
+  font-size 13px
+  padding 5px 12px
+
+.c-dropdown__item--dark
+  color black
+  &:hover
+    color white
+    background #222e3c
+
+.c-dropdown__item--blue
+  color #4f94bc
+
+.c-dropdown__hr
+  height 1px
+  margin 5px 10px
+  background white

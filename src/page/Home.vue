@@ -13,18 +13,16 @@
   </div>
 </template>
 
-<style scoped>
-.nav {
-  top: 24px;
-}
-.center-wrapper {
-  height: 201px;
-  background-image: url('/public/page_bg_schinese.png');
-  background-position: center 0;
-  background-repeat: no-repeat;
-}
-</style>
+<style lang="stylus" scoped>
+.nav
+  top 24px
 
+.center-wrapper
+  height: 201px;
+  background-image url('/public/page_bg_schinese.png')
+  background-position center 0
+  background-repeat no-repeat
+</style>
 
 <script>
 import NavHeaderMenu from '../component/NavHeaderMenu.vue'

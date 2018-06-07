@@ -11,7 +11,7 @@
           <div v-for="(col, colI) in slotProps.item" :key="colI" class="slide-margin-right">
             <!-- spotlight -->
             <div v-if="col.type === 'spotlight'" class="slide-spotlight-wrapper">
-              <div class="spotlight-wrapper default-slide-bg btn">
+              <div class="spotlight-wrapper c-slider__item c-btn">
                 <div class="spotlight-wrapper" :data-slide="col.data"></div>
               </div>
               <div class="common-content spotlight-content">
@@ -34,7 +34,7 @@
             <!-- headers -->
             <div v-else>
               <div v-for="(header, headerI) in col.data" :key="headerI" :class="['slide-header-wrapper', headerI === 0 ? 'slide-header-wrapper-up' : '']">
-                <div class="header-wrapper default-slide-bg btn">
+                <div class="header-wrapper c-slider__item c-btn">
                   <div class="header-wrapper" :data-slide="header.data"></div>
                 </div>
                 <div class="common-content header-content">
@@ -60,88 +60,86 @@
   </delay-load-view>
 </template>
 
-<style scoped>
-  .header-wrapper {
-    width: 306px;
-    height: 143px;
-    background-size: 306px 143px;
-  }
-  .spotlight-wrapper {
-    width: 306px;
-    height: 350px;
-    background-size: 306px 350px;
-  }
-  .discount-original-price {
-    color: #7193a6;
-    text-decoration: line-through;
-    font-size: 11px;
-  }
-  .discount-new-price {
-    color: #acdbf5;
-    font-size: 13px;
-  }
-  .discount-prices {
-    background-color: rgba(0,0,0,0.6);
-    padding: 4px 10px 4px 7px;
-    line-height: 13px;
-    display: inline-block;
-    text-align: right;
-    vertical-align: bottom;
-  }
-  .discount-pct {
-    color: #a4d007;
-    background: #4c6b22;
-    display: inline-block;
-    line-height: 34px;
-    padding: 0 5px;
-    font-size: 26px;
-  }
-  .spotlight-sub-title {
-    color: #acdbf5;
-    margin-bottom: 10px;
-  }
-  h2 {
-    color: white;
-    margin: 0 0 10px;
-    font-size: 17px;
-    letter-spacing: 2px;
-    padding-top: 2px;
-  }
-  .common-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: url( '/public/background_spotlight.jpg' ) bottom center no-repeat;
-    box-sizing: border-box;
-  }
-  .spotlight-content {
-    padding: 8px 16px 12px 16px;
-  }
-  .header-content {
-    padding: 5px;
-    text-align: right;
-  }
-  .slide-margin-right {
-    margin-right: 11px;
-  }
-  .slide-spotlight-wrapper {
-    position: relative;
-    width: 306px;
-    height: 390px;
-    box-shadow: 0 0 10px 1px #000;
-  }
-  .slide-header-wrapper {
-    position: relative;
-    width: 306px;
-    height: 187.52px;
-    box-shadow: 0 0 10px 1px #000;
-  }
-  .slide-header-wrapper-up {
-    margin-bottom: 15px;
-  }
-</style>
+<style lang="stylus" scoped>
+h2
+  color white
+  margin 0 0 10px
+  font-size 17px
+  letter-spacing 2px
+  padding-top 2px
 
+.header-wrapper
+  width 306px
+  height 143px
+  background-size 306px 143px
+
+.spotlight-wrapper
+  width 306px
+  height 350px
+  background-size 306px 350px
+
+.discount-original-price
+  color #7193a6
+  text-decoration line-through
+  font-size 11px
+
+.discount-new-price
+  color #acdbf5
+  font-size 13px
+
+.discount-prices
+  background-color rgba(0,0,0,0.6)
+  padding 4px 10px 4px 7px
+  line-height 13px
+  display inline-block
+  text-align right
+  vertical-align bottom
+
+.discount-pct
+  color #a4d007
+  background #4c6b22
+  display inline-block
+  line-height 34px
+  padding 0 5px
+  font-size 26px
+
+.spotlight-sub-title
+  color #acdbf5
+  margin-bottom 10px
+
+.common-content
+  position absolute
+  bottom 0
+  left 0
+  right 0
+  background url( '/public/background_spotlight.jpg' ) bottom center no-repeat
+  box-sizing border-box
+
+.spotlight-content
+  padding 8px 16px 12px 16px
+
+.header-content
+  padding 5px
+  text-align right
+
+.slide-margin-right
+  margin-right: 11px
+
+.slide-spotlight-wrapper
+  position relative;
+  width 306px
+  height 390px
+  box-shadow 0 0 10px 1px #000
+
+.slide-header-wrapper
+  position relative
+  width 306px
+  height 187.52px
+  box-shadow 0 0 10px 1px #000
+
+.slide-header-wrapper-up
+  margin-bottom 15px
+</style>
 
 <script>
 import SlideView from './SlideView.vue'

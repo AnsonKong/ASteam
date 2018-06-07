@@ -1,17 +1,17 @@
 <template>
-  <div class="wrapper">
-    <div class="main-wrapper menu-wrapper h-wrapper">
-      <div class="h-wrapper">
+  <div style="background: #171a21;">
+    <div class="o-container o-layout-h" style="justify-content: space-between;">
+      <div class="o-layout-h">
         <router-link to="/">
-          <h1 class="normal-btn">
+          <h1 class="c-btn c-btn--grey c-btn--narrow">
             ASteam
           </h1>
         </router-link>
-        <ul>
-          <li v-for="(item, index) in items" v-if="item.title" :key="index" class="menu-item h-list" @mouseover="onOver(item)" @mouseout="onOut(item)">
-            <span class="normal-btn btn">{{item.title}}</span>
-            <div v-if="item.subs" :class="['dropdown', item.active ? 'dropdown-active' : 'dropdown-deactive']">
-              <div v-for="(subItem, subIndex) in item.subs" :key="subIndex" class="sub-item normal-btn btn">
+        <ul class="c-nav">
+          <li v-for="(item, index) in items" v-if="item.title" :key="index" class="c-nav__item" @mouseover="onOver(item)" @mouseout="onOut(item)">
+            <span class="c-nav__item__btn c-nav__item__btn--grey c-nav__item__btn--big">{{item.title}}</span>
+            <div v-if="item.subs" :class="['c-dropdown c-dropdown--dark', item.active ? 'c-dropdown--active' : 'c-dropdown--deactive']">
+              <div v-for="(subItem, subIndex) in item.subs" :key="subIndex" class="c-dropdown__item c-btn c-btn--grey c-btn--narrow">
                 {{subItem}}
               </div>
             </div>
@@ -20,53 +20,20 @@
       </div>
       <div>
         <template v-if="user">
-          <span class="normal-btn btn">
+          <span class="c-btn c-btn--grey c-btn--narrow">
             欢迎回来！ {{ user.name }}
           </span>
-          <a class="normal-btn" href="/logout">
+          <a class="c-btn c-btn--grey c-btn--narrow" href="/logout">
             登出
           </a>
         </template>
-        <a v-else href="/passport/github" class="green-btn">
+        <a v-else href="/passport/github" class="c-btn c-btn--green c-btn--wide">
           GitHub 登录
         </a>
       </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-  .sub-item {
-    white-space: nowrap;
-    font-size: 11px;
-  }
-  .dropdown {
-    position: absolute;
-    left: 0;
-    background:#171a21;
-    box-shadow: 3px 3px 5px -3px #000;
-    padding: 5px 15px 10px 15px;
-    z-index: 1500;
-    transition: all 0.5s;
-  }
-  .dropdown-active {
-    opacity: 1;
-    visibility: visible;
-  }
-  .dropdown-deactive {
-    opacity: 0;
-    visibility: hidden;
-  }
-  .wrapper {
-    background: #171a21;
-  }
-  .menu-item {
-    position: relative;
-  }
-  .menu-wrapper {
-    justify-content: space-between;
-  }
-</style>
 
 <script>
 export default {

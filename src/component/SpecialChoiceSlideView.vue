@@ -26,63 +26,61 @@
   </delay-load-view>
 </template>
 
-<style scoped>
-.info-price {
-    color: #acdbf5;
-    font-size: 11px;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-  }
-  .info-platforms {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-  }
-  .screenshot {
-    opacity: 0.6;
-    transition: all 0.5s;
-    width: 162px;
-    height: 90.98px;
-    background-size: 162px 90.98px;
-    display: inline-block;
-  }
-  .screenshot:hover {
-    opacity: 1;
-  }
-  .screenshot-img {
-    width: 162px;
-    height: 90.98px;
-    background-size: 162px 90.98px;
-  }
-  .main-screen-wrapper {
-    flex-basis: 616px;
-    z-index: 2;
-    box-shadow: 0 0 10px 1px #000;
-    width: 616px;
-    height: 353px;
-    background-size: 616px 353px;
-  }
-  .main-img {
-    width: 616px;
-    height: 353px;
-    background-size: 616px 353px;
-  }
-  .total-wrapper {
-    box-shadow: 0 0 10px 1px #000;
-    display: flex;
-    background: rgb(11, 21, 30);
-  }
-  .info-wrapper {
-    flex-basis: 324px;
-    position: relative;
-  }
-  .info-title {
-    color: white;
-    padding: 10px 6px;
-    font-size: 24px;
-    height: 52px;
-  }
+<style lang="stylus" scoped>
+.info-price
+  color #acdbf5
+  font-size 11px
+  position absolute
+  bottom 10px
+  left 10px
+
+.info-platforms
+  position absolute
+  bottom 10px
+  right 10px
+
+.screenshot
+  opacity 0.6
+  transition all 0.5s
+  width 162px
+  height 90.98px
+  background-size 162px 90.98px
+  display inline-block
+  &:hover
+    opacity 1
+
+.screenshot-img
+  width 162px
+  height 90.98px
+  background-size 162px 90.98px
+
+.main-screen-wrapper
+  flex-basis 616px
+  z-index 2
+  box-shadow 0 0 10px 1px #000
+  width 616px
+  height 353px
+  background-size 616px 353px
+
+.main-img
+  width 616px
+  height 353px
+  background-size 616px 353px
+
+.total-wrapper
+  box-shadow 0 0 10px 1px #000
+  display flex
+  background rgb(11, 21, 30)
+
+.info-wrapper
+  flex-basis 324px
+  position relative
+
+.info-title
+  color white
+  padding 10px 6px
+  font-size 24px
+  height 52px
 </style>
 
 

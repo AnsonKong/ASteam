@@ -1,89 +1,24 @@
 <template>
-  <div class="nav-wrapper main-wrapper">
+  <div class="c-nav--dark o-container" style="height: 35px;">
     <!-- items -->
-    <div class="h-wrapper items-wrapper">
-      <div v-for="(item, index) in items" :key="index" class="nav-item" @mouseover="onOver(item)" @mouseout="onOut(item)">
-        <div class="nav-btn btn">
+    <div class="o-layout-h">
+      <div v-for="(item, index) in items" :key="index" class="c-nav__item" @mouseover="onOver(item)" @mouseout="onOut(item)">
+        <div class="c-nav__item__btn c-nav__item__btn--dark">
           {{item.title}}
           <img v-if="item.subs" src="/public/btn_arrow_down_padded_white.png" />
         </div>
         <!-- popup -->
-        <div v-if="item.subs" :class="['popup', item.active ? 'popup-active' : 'popup-deactive']">
+        <div v-if="item.subs" :class="['c-dropdown c-dropdown--light', item.active ? 'c-dropdown--active' : 'c-dropdown--deactive']">
           <div v-for="(subItem, subIndex) in item.subs" :key="subIndex">
-            <div v-if="subItem === 'hr'" class="sub-hr"></div>
-            <div v-else-if="subItem.indexOf('label:') !== -1" class="sub-item sub-item-label"><label>{{subItem.replace('label:', '')}}</label></div>
-            <div v-else class="sub-item sub-item-normal btn">{{subItem}}</div>
+            <div v-if="subItem === 'hr'" class="c-dropdown__hr"></div>
+            <div v-else-if="subItem.indexOf('label:') !== -1" class="c-dropdown__item c-dropdown__item--big c-dropdown__item--blue"><label>{{subItem.replace('label:', '')}}</label></div>
+            <div v-else class="c-dropdown__item c-dropdown__item--big c-dropdown__item--dark">{{subItem}}</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-  .sub-item {
-    font-size: 13px;
-    padding: 5px 12px;
-    white-space: nowrap;
-  }
-  .sub-item-label {
-    color: #4f94bc;
-  }
-  .sub-item-normal {
-    color: black;
-  }
-  .sub-item-normal:hover {
-    color: white;
-    background: #222e3c;
-  }
-  .sub-hr {
-    height: 1px;
-    margin: 5px 10px;
-    background: white;
-  }
-  .popup {
-    background: linear-gradient(to bottom, #e3eaef 5%, #c7d5e0 95%);
-    position: absolute;
-    padding: 8px 5px;
-    transition: all 0.5s;
-    box-shadow: 0 0 12px #000000;
-    z-index: 200;
-  }
-  .popup-active {
-    opacity: 1;
-    visibility: visible;
-  }
-  .popup-deactive {
-    opacity: 0;
-    visibility: hidden;
-  }
-  .nav-wrapper {
-    box-shadow: 0 0 3px rgba( 0, 0, 0, 0.4);
-    background: rgba( 48, 95, 128, 0.9 );
-    height: 35px;
-  }
-  .items-wrapper {
-    height: 100%;
-  }
-  .nav-item {
-    position: relative;
-  }
-  .nav-btn {
-    box-sizing: border-box;
-    padding: 0 10px;
-    height: 100%;
-    color: #d9dadd;
-    border-right: 1px solid rgba( 16, 21, 25, 0.3);
-    background: rgba(255, 255, 255, 0);
-    font-size: 13px;
-    line-height: 35px;
-    vertical-align: middle;
-  }
-  .nav-btn:hover {
-    color: black;
-    background: rgba(255, 255, 255, 0.8);
-  }
-</style>
 
 <script>
 export default {
