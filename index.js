@@ -8,6 +8,7 @@ const serve = require('koa-static')
 const mount = require('koa-mount');
 const ssr = require('./middleware/vueSSR')
 const passport = require('./middleware/passport')
+const compress = require('koa-compress')
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -35,6 +36,7 @@ router.get('/passport/github', passport.request)
 router.get('/passport/github/callback', passport.callback)
 // setup vuessr
 router.get('*', ssrMiddleware)
+app.use(compress())
 app.use(router.routes())
 
 const port = process.env.port || 3000
